@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TSC LABS — Blueprint № TSC-2026/01</title>
+<meta name="description" content="Blueprint operativo TSC LABS · Lanza la marca de skincare de tu talento, desde la fórmula hasta el frasco." />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==================================================================
+   TSC LABS — BLUEPRINT № TSC-2026/01
+   "Laboratory Procedure / Process Blueprint" aesthetic
+   ================================================================== */
+
+:root {
+  --paper: #f4f1ec;
+  --paper-darker: #ece7df;
+  --blueprint: #1e3a5f;
+  --blueprint-soft: #4a6b8e;
+  --blueprint-faint: rgba(30, 58, 95, 0.08);
+  --ink: #0f1419;
+  --ink-soft: #4a5260;
+  --accent: #c9622a;
+  --accent-soft: rgba(201, 98, 42, 0.12);
+  --line: #c8c0b0;
+  --line-soft: #d8d2c4;
+
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --topbar-h: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: auto; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+
+  /* Drafting paper grid background */
+  background-image:
+    linear-gradient(to right, rgba(30, 58, 95, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 58, 95, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+}
+
+/* ============== SELECTION ============== */
+::selection { background: var(--blueprint); color: var(--paper); }
+
+/* ============== TOPBAR ============== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: rgba(244, 241, 236, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.topbar-logo {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.05em;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--ink);
+}
+.topbar-logo strong {
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  color: var(--blueprint);
+}
+
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.topbar-meta .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.topbar-meta .dot {
+  width: 7px; height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@media (max-width: 720px) {
+  .topbar { padding: 0 16px; height: 52px; }
+  .topbar-logo { font-size: 17px; }
+  .topbar-meta { gap: 12px; font-size: 9px; }
+  .meta-hide { display: none; }
+}
+
+/* ============== CONTAINERS ============== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+@media (max-width: 720px) {
+  .container { padding: 0 18px; }
+}
+
+/* ============== SECTION HEADER ============== */
+.section-wrap {
+  padding: 120px 0 60px;
+  position: relative;
+}
+.section-wrap.first { padding-top: calc(var(--topbar-h) + 24px); }
+
+.section-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 64px;
+  border-top: 2px solid var(--blueprint);
+  padding-top: 32px;
+}
+.section-num-block {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  line-height: 1.5;
+}
+.section-num-block .phase {
+  display: block;
+  font-weight: 600;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.section-num-block .id {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 9px;
+  margin-top: 4px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 5.4vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+
+@media (max-width: 880px) {
+  .section-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .section-wrap { padding: 80px 0 40px; }
+}
+
+/* ============== HERO ============== */
+.hero {
+  padding-top: calc(var(--topbar-h) + 60px);
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.hero-corner {
+  position: absolute;
+  top: calc(var(--topbar-h) + 24px);
+  right: 32px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: right;
+  line-height: 1.7;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  background: rgba(244, 241, 236, 0.6);
+}
+.hero-corner .doc-id { color: var(--blueprint); font-weight: 600; }
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--blueprint);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 7.4vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  max-width: 1100px;
+  margin-bottom: 28px;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+
+/* HERO PROCESS DIAGRAM (the engineering schematic) */
+.hero-diagram {
+  margin-top: 72px;
+  position: relative;
+  padding: 32px 0;
+}
+.hero-diagram-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+  margin-bottom: 28px;
+}
+.hero-diagram-meta .lbl { color: var(--blueprint); font-weight: 600; }
+
+.hero-svg-wrap {
+  width: 100%;
+  position: relative;
+}
+.hero-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 72px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.hero-stat {
+  border-left: 2px solid var(--blueprint);
+  padding-left: 18px;
+}
+.hero-stat .num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.hero-stat .num sub, .hero-stat .num .accent-x {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.5em;
+  vertical-align: baseline;
+}
+.hero-stat .lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 880px) {
+  .hero-corner { display: none; }
+  .hero-title { font-size: clamp(40px, 11vw, 72px); }
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* ============== SPEC CARDS (POR QUÉ TSC) ============== */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.spec-card {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 28px 32px;
+  background: rgba(244, 241, 236, 0.4);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.spec-card:hover {
+  background: rgba(30, 58, 95, 0.04);
+}
+.spec-card-link {
+  cursor: pointer;
+}
+.spec-card-link::after {
+  content: '↗';
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--blueprint);
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.spec-card-link:hover::after {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+.spec-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+}
+.spec-card-head .id { font-weight: 600; }
+.spec-card-head .tag { color: var(--ink-soft); }
+.spec-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+.spec-card h3 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+.spec-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+.spec-card .footer {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+@media (max-width: 880px) {
+  .spec-grid { grid-template-columns: 1fr; }
+  .spec-card { min-height: auto; }
+}
+
+/* ============== PROCESS DETAIL (5 PHASES) ============== */
+.process-wrap {
+  position: relative;
+  padding-left: 0;
+}
+.phase-row {
+  display: grid;
+  grid-template-columns: 64px 1fr 1.05fr;
+  gap: 32px;
+  border-top: 1px solid var(--line);
+  padding: 48px 0 64px;
+  position: relative;
+}
+.phase-row:last-of-type { border-bottom: 1px solid var(--line); }
+
+.phase-num-col {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  font-weight: 600;
+  position: sticky;
+  top: calc(var(--topbar-h) + 20px);
+  align-self: start;
+}
+.phase-num-col .big {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.phase-num-col .lbl {
+  display: block;
+  font-size: 9px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.phase-content h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.phase-content h3 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+.phase-content p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.phase-content .specs {
+  list-style: none;
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  margin-top: 8px;
+}
+.phase-content .specs li {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 5px 0;
+  display: flex;
+  gap: 12px;
+}
+.phase-content .specs li::before {
+  content: '→';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.phase-diagram {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 280px;
+}
+.phase-diagram-head {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+.phase-diagram-head .id { color: var(--blueprint); font-weight: 600; }
+.phase-diagram-svg {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+.phase-diagram-svg svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+}
+.phase-diagram-foot {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 880px) {
+  .phase-row { grid-template-columns: 1fr; gap: 20px; }
+  .phase-num-col { position: static; }
+  .phase-num-col .big { font-size: 56px; }
+  .phase-diagram { min-height: 220px; }
+}
+
+/* PROGRESS RAIL ============== */
+.progress-rail {
+  position: fixed;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.progress-rail .rl-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.progress-rail .rl-item .dot {
+  width: 6px; height: 6px;
+  border: 1px solid var(--blueprint);
+  background: var(--paper);
+  border-radius: 50%;
+  display: inline-block;
+}
+.progress-rail .rl-item.active {
+  opacity: 1;
+  color: var(--blueprint);
+}
+.progress-rail .rl-item.active .dot {
+  background: var(--blueprint);
+}
+@media (max-width: 1100px) {
+  .progress-rail { display: none; }
+}
+
+/* ============== INGREDIENTES (BLACKLIST) ============== */
+.bl-intro {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 800px;
+  margin-bottom: 48px;
+}
+.bl-intro em {
+  font-style: italic;
+  color: var(--blueprint);
+}
+
+.bl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+}
+.bl-col {
+  padding: 32px 28px 18px;
+  border-right: 1px solid var(--line);
+}
+.bl-col:last-child {
+  border-right: none;
+  background: rgba(30, 58, 95, 0.03);
+}
+.bl-col-head {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  font-weight: 600;
+  border-bottom: 2px solid var(--blueprint);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.bl-col-head .qty { color: var(--ink-soft); font-weight: 400; }
+
+.bl-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--line);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.bl-row:last-child { border-bottom: none; }
+.bl-row:hover { background: rgba(30, 58, 95, 0.04); }
+.bl-row .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.bl-row.tox .name {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+}
+.bl-row.alt .name {
+  color: var(--blueprint);
+}
+.bl-row .use {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Molecule preview (used by hover) */
+.bl-molecule {
+  position: fixed;
+  pointer-events: none;
+  z-index: 80;
+  width: 180px;
+  height: 180px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+}
+.bl-molecule.show { opacity: 1; }
+.bl-molecule .ml-head {
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.bl-molecule svg {
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .bl-grid { grid-template-columns: 1fr; }
+  .bl-col { border-right: none; border-bottom: 1px solid var(--line); }
+  .bl-molecule { display: none; }
+}
+
+/* ============== SERVICIOS (WORK ORDERS) ============== */
+.wo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+.wo-card {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 28px 32px;
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+.wo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+.wo-id {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  font-weight: 600;
+}
+.wo-status {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.wo-status .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+.wo-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.wo-card h3 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+.wo-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  flex-grow: 1;
+  margin-bottom: 22px;
+}
+.wo-foot {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.wo-foot .label { color: var(--blueprint); font-weight: 600; }
+
+@media (max-width: 880px) {
+  .wo-grid { grid-template-columns: 1fr; }
+}
+
+/* ============== CTA / CONTACTO ============== */
+.cta-section {
+  padding: 120px 0 80px;
+  border-top: 2px solid var(--blueprint);
+  position: relative;
+  background:
+    linear-gradient(to right, rgba(30, 58, 95, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 58, 95, 0.04) 1px, transparent 1px),
+    var(--paper-darker);
+  background-size: 20px 20px, 20px 20px, auto;
+}
+.cta-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cta-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--blueprint);
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 6.4vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 56px;
+  max-width: 900px;
+}
+.cta-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blueprint);
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--blueprint);
+  background: var(--paper);
+}
+.channel {
+  text-decoration: none;
+  color: var(--ink);
+  padding: 32px 28px;
+  border-right: 1px solid var(--blueprint);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  transition: background 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+.channel:last-child { border-right: none; }
+.channel:hover {
+  background: var(--blueprint);
+  color: var(--paper);
+}
+.channel:hover .ch-num,
+.channel:hover .ch-arrow {
+  color: var(--paper);
+}
+.channel:hover .ch-label {
+  color: rgba(244, 241, 236, 0.7);
+}
+.ch-num {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  font-weight: 600;
+}
+.ch-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+}
+.ch-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+  color: inherit;
+  line-height: 1.2;
+  word-break: break-word;
+}
+.ch-arrow {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--blueprint);
+  transition: transform 0.25s ease;
+}
+.channel:hover .ch-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 880px) {
+  .channels { grid-template-columns: 1fr; }
+  .channel { border-right: none; border-bottom: 1px solid var(--blueprint); }
+  .channel:last-child { border-bottom: none; }
+}
+
+/* ============== FOOTER ============== */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+footer .right { color: var(--blueprint); font-weight: 600; }
+
+@media (max-width: 720px) {
+  footer { padding: 24px 18px; flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ============== REVEAL ============== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============== HELPERS ============== */
+.mono { font-family: var(--font-mono); }
+.uppercase { text-transform: uppercase; letter-spacing: 0.15em; }
+.draw-path {
+  fill: none;
+  stroke: var(--blueprint);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.draw-path.thin { stroke-width: 1; }
+.draw-path.accent { stroke: var(--accent); }
+
+/* SVG node shapes (hero + phase) */
+.node-rect { fill: var(--paper); stroke: var(--blueprint); stroke-width: 1.5; }
+.node-rect.accent { stroke: var(--accent); }
+.node-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  fill: var(--blueprint);
+  font-weight: 600;
+}
+.node-sub {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--ink-soft);
+}
+.spec-callout {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--ink-soft);
+}
+.spec-callout.accent { fill: var(--accent); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============== TOPBAR ============== -->
+<div class="topbar">
+  <div class="topbar-logo"><strong>TSC</strong>LABS</div>
+  <div class="topbar-meta">
+    <span class="pill"><span class="dot"></span><span class="meta-hide">BLUEPRINT №&nbsp;</span>TSC-2026/01</span>
+    <span class="meta-hide">ZAPOPAN/MX</span>
+    <span class="meta-hide">CONFIDENCIAL</span>
+  </div>
+</div>
+
+<!-- ============== PROGRESS RAIL (5 PHASES) ============== -->
+<nav class="progress-rail" aria-hidden="true">
+  <div class="rl-item" data-phase="01"><span class="dot"></span>01 R&amp;D</div>
+  <div class="rl-item" data-phase="02"><span class="dot"></span>02 COFEPRIS</div>
+  <div class="rl-item" data-phase="03"><span class="dot"></span>03 FAB</div>
+  <div class="rl-item" data-phase="04"><span class="dot"></span>04 ENV</div>
+  <div class="rl-item" data-phase="05"><span class="dot"></span>05 RETAIL</div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-corner">
+      <div>DOC <span class="doc-id">№ TSC-2026/01</span></div>
+      <div>REV. 1.0 / ABRIL 2026</div>
+      <div>USO INTERNO</div>
+    </div>
+
+    <div class="hero-eyebrow">BLUEPRINT № 01 / OPERACIÓN TSC LABS</div>
+
+    <h1 class="hero-title">
+      Lanza la marca de skincare de tu talento. <em>Desde la fórmula hasta el frasco.</em>
+    </h1>
+
+    <p class="hero-sub">
+      Somos los biotecnólogos que ya están haciendo lo que las grandes marcas mexicanas no pueden ofrecer: fórmulas limpias, científicas, y a precio competitivo. Esta es la propuesta de cómo construimos juntos una marca de cuidado personal con los talentos que representas.
+    </p>
+
+    <!-- HERO PROCESS DIAGRAM -->
+    <div class="hero-diagram">
+      <div class="hero-diagram-meta">
+        <span class="lbl">FIG. 01 / DIAGRAMA DE FLUJO OPERATIVO</span>
+        <span>5 FASES · INPUT → OUTPUT</span>
+        <span>ESCALA 1:1</span>
+      </div>
+
+      <div class="hero-svg-wrap">
+        <svg id="heroSvg" viewBox="0 0 1280 320" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de proceso TSC LABS">
+          <!-- background grid (subtle) -->
+          <defs>
+            <pattern id="hgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M20 0 L0 0 0 20" fill="none" stroke="rgba(30,58,95,0.06)" stroke-width="0.5"/>
+            </pattern>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e3a5f"/>
+            </marker>
+          </defs>
+          <rect width="1280" height="320" fill="url(#hgrid)"/>
+
+          <!-- top spec line -->
+          <line class="draw-path thin hero-line" x1="40" y1="40" x2="1240" y2="40" />
+          <text class="spec-callout" x="40" y="32">↳ INPUT / BRIEF DEL TALENTO</text>
+          <text class="spec-callout accent" x="1100" y="32" text-anchor="end">OUTPUT / PRODUCTO EN ALMACÉN</text>
+
+          <!-- bottom spec line -->
+          <line class="draw-path thin hero-line" x1="40" y1="280" x2="1240" y2="280" />
+          <text class="spec-callout" x="40" y="302">PRESSURE: ATM · TEMP: 22°C · CLEANROOM CLASS-100K</text>
+          <text class="spec-callout" x="1240" y="302" text-anchor="end">CYCLE: 10—12 SEMANAS</text>
+
+          <!-- 5 nodes: positioned at x ~ 130, 360, 600, 845, 1095 ; y center ~ 160 -->
+
+          <!-- Connecting paths (drawn first via DrawSVG) -->
+          <path class="draw-path hero-conn" d="M 220 160 L 290 160" marker-end="url(#arrow)"/>
+          <path class="draw-path hero-conn" d="M 460 160 L 530 160" marker-end="url(#arrow)"/>
+          <path class="draw-path hero-conn" d="M 700 160 L 770 160" marker-end="url(#arrow)"/>
+          <path class="draw-path hero-conn" d="M 940 160 L 1010 160" marker-end="url(#arrow)"/>
+
+          <!-- Node 01 R&D -->
+          <g class="hero-node" data-i="0">
+            <rect class="node-rect" x="80" y="120" width="140" height="80" rx="2"/>
+            <text class="node-label" x="150" y="150" text-anchor="middle">PHASE 01</text>
+            <text x="150" y="176" text-anchor="middle" font-family="Inter Tight" font-weight="900" font-size="22" fill="#0f1419" letter-spacing="-0.03em">R&amp;D</text>
+            <text class="node-sub" x="150" y="194" text-anchor="middle">FORMULACIÓN</text>
+            <text class="spec-callout" x="150" y="232" text-anchor="middle">→ +18 SKUs validadas</text>
+            <text class="spec-callout accent" x="150" y="248" text-anchor="middle">3 ITESM</text>
+          </g>
+
+          <!-- Node 02 COFEPRIS -->
+          <g class="hero-node" data-i="1">
+            <rect class="node-rect" x="290" y="120" width="170" height="80" rx="2"/>
+            <text class="node-label" x="375" y="150" text-anchor="middle">PHASE 02</text>
+            <text x="375" y="176" text-anchor="middle" font-family="Inter Tight" font-weight="900" font-size="22" fill="#0f1419" letter-spacing="-0.03em">COFEPRIS</text>
+            <text class="node-sub" x="375" y="194" text-anchor="middle">CUMPLIMIENTO</text>
+            <text class="spec-callout" x="375" y="232" text-anchor="middle">→ NOM-259 · 141 · 089</text>
+            <text class="spec-callout accent" x="375" y="248" text-anchor="middle">3 NOMs</text>
+          </g>
+
+          <!-- Node 03 FAB -->
+          <g class="hero-node" data-i="2">
+            <rect class="node-rect" x="530" y="120" width="170" height="80" rx="2"/>
+            <text class="node-label" x="615" y="150" text-anchor="middle">PHASE 03</text>
+            <text x="615" y="176" text-anchor="middle" font-family="Inter Tight" font-weight="900" font-size="22" fill="#0f1419" letter-spacing="-0.03em">FAB</text>
+            <text class="node-sub" x="615" y="194" text-anchor="middle">FABRICACIÓN</text>
+            <text class="spec-callout" x="615" y="232" text-anchor="middle">→ LOTE · CONTROL CALIDAD</text>
+            <text class="spec-callout accent" x="615" y="248" text-anchor="middle">SEM 07—10</text>
+          </g>
+
+          <!-- Node 04 ENV -->
+          <g class="hero-node" data-i="3">
+            <rect class="node-rect" x="770" y="120" width="170" height="80" rx="2"/>
+            <text class="node-label" x="855" y="150" text-anchor="middle">PHASE 04</text>
+            <text x="855" y="176" text-anchor="middle" font-family="Inter Tight" font-weight="900" font-size="22" fill="#0f1419" letter-spacing="-0.03em">ENV</text>
+            <text class="node-sub" x="855" y="194" text-anchor="middle">ENVASADO</text>
+            <text class="spec-callout" x="855" y="232" text-anchor="middle">→ ETIQUETA · NOM-141</text>
+            <text class="spec-callout accent" x="855" y="248" text-anchor="middle">PRIM + SEC</text>
+          </g>
+
+          <!-- Node 05 RETAIL -->
+          <g class="hero-node" data-i="4">
+            <rect class="node-rect accent" x="1010" y="120" width="190" height="80" rx="2" stroke="#c9622a"/>
+            <text class="node-label" x="1105" y="150" text-anchor="middle" fill="#c9622a">PHASE 05</text>
+            <text x="1105" y="176" text-anchor="middle" font-family="Inter Tight" font-weight="900" font-size="22" fill="#0f1419" letter-spacing="-0.03em">RETAIL</text>
+            <text class="node-sub" x="1105" y="194" text-anchor="middle">DISTRIBUCIÓN</text>
+            <text class="spec-callout" x="1105" y="232" text-anchor="middle">→ ALMACÉN / E-COMMERCE</text>
+            <text class="spec-callout accent" x="1105" y="248" text-anchor="middle">SEM 10—12</text>
+          </g>
+
+          <!-- floating annotations -->
+          <g class="hero-annot">
+            <line class="draw-path thin" x1="150" y1="120" x2="150" y2="80"/>
+            <line class="draw-path thin" x1="150" y1="80" x2="240" y2="80"/>
+            <text class="spec-callout" x="244" y="83">+4 AÑOS EN MERCADO</text>
+          </g>
+          <g class="hero-annot">
+            <line class="draw-path thin" x1="855" y1="200" x2="855" y2="240"/>
+            <line class="draw-path thin" x1="855" y1="240" x2="760" y2="240"/>
+            <text class="spec-callout" x="755" y="243" text-anchor="end">→ 100% CONFIDENCIAL</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- HERO STATS -->
+    <div class="hero-stats-row">
+      <div class="hero-stat">
+        <div class="num">$<span data-counter="11.3" data-suffix="" data-decimals="1">0</span><sub>B</sub></div>
+        <div class="lbl">Mercado mexicano de belleza y cuidado personal — 2024 (USD)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">+<span data-counter="6.05" data-suffix="" data-decimals="2">0</span>%</div>
+        <div class="lbl">CAGR proyectado al 2029 — Mordor Intelligence</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span data-counter="3" data-decimals="0">0</span><span class="accent-x">×</span></div>
+        <div class="lbl">Ingenieros en Biotecnología del ITESM detrás de cada fórmula</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 02 — POR QUÉ TSC ============== -->
+<section class="section-wrap" id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num-block">
+        <span class="phase">PHASE 02 / R&amp;D</span>
+        <span>POR QUÉ TSC</span>
+        <span class="id">SECTION-02 · SPEC-01..03</span>
+      </div>
+      <h2 class="section-title">No somos una maquila más. Somos un <em>laboratorio</em> con marca propia ya validada en el mercado.</h2>
+    </div>
+
+    <div class="spec-grid reveal">
+      <div class="spec-card">
+        <div class="spec-card-head">
+          <span class="id">SPEC-01</span>
+          <span class="tag">→ INGENIERÍA</span>
+        </div>
+        <h3>Biotecnólogos <em>del ITESM</em></h3>
+        <p>Los 3 fundadores son ingenieros en biotecnología graduados del Tec de Monterrey. Cada fórmula se desarrolla desde la interacción molecular de los activos: estabilidad, sinergia, eficacia comprobada. No copiamos formulaciones genéricas — las diseñamos.</p>
+        <div class="footer">→ R&amp;D PROPIO · INVESTIGACIÓN CONSTANTE</div>
+      </div>
+
+      <a class="spec-card spec-card-link why-card-link" href="#" target="_blank" rel="noopener" data-skinclub>
+        <div class="spec-card-head">
+          <span class="id">SPEC-02</span>
+          <span class="tag">→ TRACK RECORD</span>
+        </div>
+        <h3>Marca propia <em>en mercado</em></h3>
+        <p>Operamos The Skin Club desde 2021 — nuestra propia línea de skincare que compite directamente con Kiehl's, Clinique, L'Oréal y The Ordinary, ganándoles en formulación y precio. Lo que proponemos para tu talento, ya lo demostramos con nosotros mismos.</p>
+        <div class="footer">→ VER ECOMMERCE THE SKIN CLUB</div>
+      </a>
+
+      <div class="spec-card">
+        <div class="spec-card-head">
+          <span class="id">SPEC-03</span>
+          <span class="tag">→ COMPLIANCE</span>
+        </div>
+        <h3>Permisos <em>COFEPRIS</em></h3>
+        <p>Instalaciones que cumplen NOM-259-SSA1-2022 (Buenas Prácticas de Fabricación), NOM-141-SSA1/SCFI-2012 (Etiquetado) y NOM-089-SSA1-1994 (Contenido microbiano). Te asesoramos en todo el cumplimiento regulatorio para que tu marca pueda venderse legalmente.</p>
+        <div class="footer">→ 3 NOMs · LISTOS PARA RETAIL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 03 — PROCESO DETALLADO ============== -->
+<section class="section-wrap" id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num-block">
+        <span class="phase">PHASE 03 / SOP</span>
+        <span>PROCESO DETALLADO</span>
+        <span class="id">SECTION-03 · 5 FASES</span>
+      </div>
+      <h2 class="section-title">5 fases. De primera reunión a <em>producto en almacén</em>.</h2>
+    </div>
+
+    <div class="process-wrap">
+
+      <!-- PHASE 01 R&D -->
+      <div class="phase-row" data-phase-row="01">
+        <div class="phase-num-col">
+          <span class="big">01</span>
+          <span>FASE / R&amp;D</span>
+          <span class="lbl">SEM 01—07</span>
+        </div>
+        <div class="phase-content">
+          <h3>Investigación &amp; <em>formulación</em></h3>
+          <p>Brief del talento, posicionamiento, audiencia, objetivos comerciales, presupuesto y timing de lanzamiento. Análisis de mercado y competencia. Propuesta de fórmula con activos, costos de producción y volúmenes recomendados. Prototipado con muestras físicas — iteramos textura, aroma, sensoriales y eficacia hasta tu visto bueno.</p>
+          <ul class="specs">
+            <li>3 biotecnólogos ITESM</li>
+            <li>+18 fórmulas de catálogo · reformulación a medida</li>
+            <li>Iteración hasta visto bueno</li>
+          </ul>
+        </div>
+        <div class="phase-diagram">
+          <div class="phase-diagram-head">
+            <span class="id">FIG. 01 / R&amp;D</span>
+            <span>MOLECULAR INPUT</span>
+          </div>
+          <div class="phase-diagram-svg">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-label="Esquema molecular R&D">
+              <!-- Hexagonal molecule structure -->
+              <g class="phase-svg" data-phase="01">
+                <!-- Hexagon ring -->
+                <polygon class="draw-path" points="160,40 200,62 200,108 160,130 120,108 120,62" fill="rgba(30,58,95,0.04)"/>
+                <!-- Bonds out -->
+                <line class="draw-path" x1="160" y1="40" x2="160" y2="20"/>
+                <line class="draw-path" x1="200" y1="62" x2="220" y2="50"/>
+                <line class="draw-path" x1="200" y1="108" x2="240" y2="120"/>
+                <line class="draw-path" x1="160" y1="130" x2="160" y2="160"/>
+                <line class="draw-path" x1="120" y1="108" x2="80" y2="120"/>
+                <line class="draw-path" x1="120" y1="62" x2="100" y2="50"/>
+                <!-- Atom dots -->
+                <circle class="draw-path" cx="160" cy="20" r="6" fill="#f4f1ec"/>
+                <circle class="draw-path" cx="220" cy="50" r="6" fill="#f4f1ec"/>
+                <circle class="draw-path accent" cx="240" cy="120" r="7" fill="#c9622a"/>
+                <circle class="draw-path" cx="160" cy="160" r="6" fill="#f4f1ec"/>
+                <circle class="draw-path" cx="80" cy="120" r="6" fill="#f4f1ec"/>
+                <circle class="draw-path" cx="100" cy="50" r="6" fill="#f4f1ec"/>
+                <!-- Labels -->
+                <text class="spec-callout" x="160" y="14" text-anchor="middle">N</text>
+                <text class="spec-callout" x="226" y="44" text-anchor="middle">OH</text>
+                <text class="spec-callout accent" x="252" y="124">C=O</text>
+                <text class="spec-callout" x="160" y="178" text-anchor="middle">R</text>
+                <text class="spec-callout" x="74" y="124" text-anchor="end">OH</text>
+                <text class="spec-callout" x="94" y="44" text-anchor="end">N</text>
+                <!-- Caption -->
+                <text class="spec-callout" x="160" y="196" text-anchor="middle">→ ACTIVO BIOTECNOLÓGICO</text>
+              </g>
+            </svg>
+          </div>
+          <div class="phase-diagram-foot">
+            <span>SOP-R01</span>
+            <span class="label">→ ACTIVO VALIDADO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 02 COFEPRIS -->
+      <div class="phase-row" data-phase-row="02">
+        <div class="phase-num-col">
+          <span class="big">02</span>
+          <span>FASE / COFEPRIS</span>
+          <span class="lbl">PARALELO</span>
+        </div>
+        <div class="phase-content">
+          <h3>Cumplimiento <em>regulatorio</em></h3>
+          <p>Acompañamos cada fórmula bajo los más altos estándares de la normativa mexicana: COFEPRIS, NOM-259 (Buenas Prácticas), NOM-141 (Etiquetado), NOM-089 (Contenido microbiano). Te asesoramos en todo el proceso para que la marca de tu talento se venda legalmente, en cualquier canal — retail, e-commerce o farmacia.</p>
+          <ul class="specs">
+            <li>NOM-259-SSA1-2022 · Buenas Prácticas</li>
+            <li>NOM-141-SSA1/SCFI-2012 · Etiquetado</li>
+            <li>NOM-089-SSA1-1994 · Contenido microbiano</li>
+          </ul>
+        </div>
+        <div class="phase-diagram">
+          <div class="phase-diagram-head">
+            <span class="id">FIG. 02 / COFEPRIS</span>
+            <span>STAMP &amp; FILE</span>
+          </div>
+          <div class="phase-diagram-svg">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-label="Esquema documento COFEPRIS">
+              <g class="phase-svg" data-phase="02">
+                <!-- Document outline -->
+                <path class="draw-path" d="M 90 30 L 220 30 L 240 50 L 240 170 L 90 170 Z" fill="rgba(30,58,95,0.04)"/>
+                <line class="draw-path" x1="220" y1="30" x2="220" y2="50"/>
+                <line class="draw-path" x1="220" y1="50" x2="240" y2="50"/>
+                <!-- Lines -->
+                <line class="draw-path thin" x1="105" y1="65" x2="220" y2="65"/>
+                <line class="draw-path thin" x1="105" y1="78" x2="200" y2="78"/>
+                <line class="draw-path thin" x1="105" y1="91" x2="220" y2="91"/>
+                <line class="draw-path thin" x1="105" y1="104" x2="180" y2="104"/>
+                <line class="draw-path thin" x1="105" y1="117" x2="220" y2="117"/>
+                <!-- Stamp circle -->
+                <circle class="draw-path accent" cx="190" cy="148" r="22" fill="rgba(201,98,42,0.08)"/>
+                <text class="spec-callout accent" x="190" y="146" text-anchor="middle">NOM</text>
+                <text class="spec-callout accent" x="190" y="156" text-anchor="middle">259</text>
+                <!-- Caption -->
+                <text class="spec-callout" x="160" y="190" text-anchor="middle">→ FICHA TÉCNICA APROBADA</text>
+              </g>
+            </svg>
+          </div>
+          <div class="phase-diagram-foot">
+            <span>SOP-C02</span>
+            <span class="label">→ COMPLIANCE OK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 03 FABRICACIÓN -->
+      <div class="phase-row" data-phase-row="03">
+        <div class="phase-num-col">
+          <span class="big">03</span>
+          <span>FASE / FABRICACIÓN</span>
+          <span class="lbl">SEM 07—10</span>
+        </div>
+        <div class="phase-content">
+          <h3>Producción <em>en lote</em></h3>
+          <p>Fabricación a escala en instalaciones propias bajo NOM-259. Control de calidad por lote, trazabilidad completa, manejo de materias primas certificadas. Capacidad para corridas desde 100 piezas (menudeo) hasta corridas de mayoreo a partir de 400 piezas. La calidad es la misma; sólo cambia el costo unitario.</p>
+          <ul class="specs">
+            <li>Instalación NOM-259</li>
+            <li>Tarifa menudeo · 100—399 piezas</li>
+            <li>Tarifa mayoreo · +400 piezas</li>
+          </ul>
+        </div>
+        <div class="phase-diagram">
+          <div class="phase-diagram-head">
+            <span class="id">FIG. 03 / FAB</span>
+            <span>BATCH PIPELINE</span>
+          </div>
+          <div class="phase-diagram-svg">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-label="Pipeline de fabricación">
+              <g class="phase-svg" data-phase="03">
+                <!-- Tank 1 -->
+                <path class="draw-path" d="M 30 60 L 30 130 Q 30 145 45 145 L 75 145 Q 90 145 90 130 L 90 60 Z" fill="rgba(30,58,95,0.04)"/>
+                <line class="draw-path thin" x1="30" y1="80" x2="90" y2="80"/>
+                <line class="draw-path thin" x1="30" y1="100" x2="90" y2="100"/>
+                <text class="spec-callout" x="60" y="56" text-anchor="middle">T-01</text>
+                <!-- Pipe to tank 2 -->
+                <line class="draw-path" x1="90" y1="100" x2="130" y2="100"/>
+                <line class="draw-path" x1="115" y1="100" x2="115" y2="170"/>
+                <line class="draw-path" x1="115" y1="170" x2="160" y2="170"/>
+                <!-- Pump (small circle) -->
+                <circle class="draw-path accent" cx="115" cy="100" r="6" fill="#c9622a"/>
+                <!-- Tank 2 -->
+                <path class="draw-path" d="M 130 60 L 130 130 Q 130 145 145 145 L 175 145 Q 190 145 190 130 L 190 60 Z" fill="rgba(30,58,95,0.04)"/>
+                <line class="draw-path thin" x1="130" y1="80" x2="190" y2="80"/>
+                <line class="draw-path thin" x1="130" y1="100" x2="190" y2="100"/>
+                <text class="spec-callout" x="160" y="56" text-anchor="middle">T-02</text>
+                <!-- Pipe out to bottle -->
+                <line class="draw-path" x1="190" y1="100" x2="240" y2="100"/>
+                <line class="draw-path" x1="240" y1="100" x2="240" y2="140"/>
+                <!-- Bottle -->
+                <path class="draw-path" d="M 270 100 L 270 90 L 290 90 L 290 100 L 295 110 L 295 160 L 265 160 L 265 110 Z" fill="rgba(30,58,95,0.04)"/>
+                <!-- Caption -->
+                <text class="spec-callout" x="160" y="195" text-anchor="middle">→ CONTROL DE CALIDAD POR LOTE</text>
+              </g>
+            </svg>
+          </div>
+          <div class="phase-diagram-foot">
+            <span>SOP-F03</span>
+            <span class="label">→ LOTE LIBERADO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 04 ENVASADO -->
+      <div class="phase-row" data-phase-row="04">
+        <div class="phase-num-col">
+          <span class="big">04</span>
+          <span>FASE / ENVASADO</span>
+          <span class="lbl">PARALELO A FAB</span>
+        </div>
+        <div class="phase-content">
+          <h3>Envase &amp; <em>etiqueta</em></h3>
+          <p>Selección de envases primarios (airless, gotero, frasco), envases secundarios (caja, inserto), etiquetas que cumplen NOM-141, identidad gráfica del talento. Producto terminado, listo para anaquel — sin que tu equipo tenga que coordinar a 5 proveedores distintos.</p>
+          <ul class="specs">
+            <li>Envase primario · airless / gotero / frasco</li>
+            <li>Etiqueta NOM-141 compliant</li>
+            <li>Empaque secundario opcional</li>
+          </ul>
+        </div>
+        <div class="phase-diagram">
+          <div class="phase-diagram-head">
+            <span class="id">FIG. 04 / ENV</span>
+            <span>BOTTLE SPEC</span>
+          </div>
+          <div class="phase-diagram-svg">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-label="Esquema envase">
+              <g class="phase-svg" data-phase="04">
+                <!-- Bottle dimension lines -->
+                <line class="draw-path thin" x1="80" y1="20" x2="80" y2="180"/>
+                <line class="draw-path thin" x1="76" y1="20" x2="84" y2="20"/>
+                <line class="draw-path thin" x1="76" y1="180" x2="84" y2="180"/>
+                <text class="spec-callout" x="72" y="104" text-anchor="end" transform="rotate(-90 72 104)">160 mm</text>
+                <!-- Bottle outline -->
+                <path class="draw-path" d="M 130 30 L 130 50 L 120 60 L 120 80 L 110 90 L 110 175 L 195 175 L 195 90 L 185 80 L 185 60 L 175 50 L 175 30 Z" fill="rgba(30,58,95,0.04)"/>
+                <!-- Cap -->
+                <rect class="draw-path accent" x="130" y="20" width="45" height="14" fill="#c9622a"/>
+                <!-- Label band -->
+                <line class="draw-path" x1="110" y1="115" x2="195" y2="115"/>
+                <line class="draw-path" x1="110" y1="155" x2="195" y2="155"/>
+                <text class="spec-callout" x="152" y="138" text-anchor="middle">[ETIQUETA]</text>
+                <!-- Width dim -->
+                <line class="draw-path thin" x1="110" y1="190" x2="195" y2="190"/>
+                <line class="draw-path thin" x1="110" y1="186" x2="110" y2="194"/>
+                <line class="draw-path thin" x1="195" y1="186" x2="195" y2="194"/>
+                <text class="spec-callout" x="152" y="200" text-anchor="middle">85 mm</text>
+                <!-- Spec callouts -->
+                <line class="draw-path thin" x1="195" y1="50" x2="240" y2="50"/>
+                <text class="spec-callout accent" x="244" y="53">→ AIRLESS</text>
+                <line class="draw-path thin" x1="195" y1="135" x2="240" y2="135"/>
+                <text class="spec-callout" x="244" y="138">→ NOM-141</text>
+              </g>
+            </svg>
+          </div>
+          <div class="phase-diagram-foot">
+            <span>SOP-E04</span>
+            <span class="label">→ PIEZA ENSAMBLADA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 05 RETAIL -->
+      <div class="phase-row" data-phase-row="05">
+        <div class="phase-num-col">
+          <span class="big">05</span>
+          <span>FASE / RETAIL</span>
+          <span class="lbl">SEM 10—12</span>
+        </div>
+        <div class="phase-content">
+          <h3>Entrega &amp; <em>distribución</em></h3>
+          <p>Producto terminado en almacén o destino final. Soporte para futuras reposiciones, ampliación de catálogo, escalado a nuevos canales — D2C, retail, marketplaces. La marca de tu talento opera como cualquier marca seria de skincare en México: con ficha técnica, lote, caducidad y compliance.</p>
+          <ul class="specs">
+            <li>Entrega en almacén o destino final</li>
+            <li>Reposiciones a la demanda</li>
+            <li>Escalado D2C / retail / marketplace</li>
+          </ul>
+        </div>
+        <div class="phase-diagram">
+          <div class="phase-diagram-head">
+            <span class="id">FIG. 05 / RETAIL</span>
+            <span>SHELF LAYOUT</span>
+          </div>
+          <div class="phase-diagram-svg">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-label="Esquema retail shelf">
+              <g class="phase-svg" data-phase="05">
+                <!-- Shelf base lines -->
+                <line class="draw-path" x1="20" y1="80" x2="300" y2="80"/>
+                <line class="draw-path" x1="20" y1="140" x2="300" y2="140"/>
+                <line class="draw-path" x1="20" y1="180" x2="300" y2="180"/>
+                <!-- Shelf vertical sides -->
+                <line class="draw-path thin" x1="20" y1="40" x2="20" y2="180"/>
+                <line class="draw-path thin" x1="300" y1="40" x2="300" y2="180"/>
+                <!-- Top label -->
+                <text class="spec-callout" x="160" y="32" text-anchor="middle">RETAIL DISPLAY · 3 LEVELS</text>
+                <!-- Bottles row 1 -->
+                <rect class="draw-path" x="40" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="72" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path accent" x="104" y="48" width="24" height="32" fill="rgba(201,98,42,0.08)"/>
+                <rect class="draw-path" x="138" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="170" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="202" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="234" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="266" y="50" width="22" height="30" fill="rgba(30,58,95,0.04)"/>
+                <!-- Bottles row 2 (taller) -->
+                <rect class="draw-path" x="40" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path accent" x="72" y="98" width="24" height="42" fill="rgba(201,98,42,0.08)"/>
+                <rect class="draw-path" x="106" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="138" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path accent" x="170" y="98" width="24" height="42" fill="rgba(201,98,42,0.08)"/>
+                <rect class="draw-path" x="204" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="236" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="268" y="100" width="22" height="40" fill="rgba(30,58,95,0.04)"/>
+                <!-- Bottles row 3 (shorter) -->
+                <rect class="draw-path" x="40" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="72" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="104" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path accent" x="136" y="154" width="24" height="26" fill="rgba(201,98,42,0.08)"/>
+                <rect class="draw-path" x="170" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="202" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="234" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <rect class="draw-path" x="266" y="156" width="22" height="24" fill="rgba(30,58,95,0.04)"/>
+                <!-- Caption -->
+                <text class="spec-callout accent" x="160" y="196" text-anchor="middle">→ MARCA DE TU TALENTO EN ANAQUEL</text>
+              </g>
+            </svg>
+          </div>
+          <div class="phase-diagram-foot">
+            <span>SOP-R05</span>
+            <span class="label">→ ENTREGADO</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 04 — INGREDIENTES ============== -->
+<section class="section-wrap" id="ingredientes">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num-block">
+        <span class="phase">PHASE 04 / FORMULACIÓN</span>
+        <span>INGREDIENTES</span>
+        <span class="id">SECTION-04 · BLACKLIST</span>
+      </div>
+      <h2 class="section-title">La diferencia <em>no</em> está en lo que añadimos. Está en lo que <em>nos negamos</em> a poner.</h2>
+    </div>
+
+    <p class="bl-intro reveal">Las grandes marcas siguen usando ingredientes baratos asociados a alergias, disrupción hormonal y daño ambiental — solo porque <em>reducen el costo de fabricación</em>. Nosotros los sustituimos por alternativas más seguras, sin negociar la calidad de la fórmula.</p>
+
+    <div class="bl-grid reveal">
+      <div class="bl-col">
+        <div class="bl-col-head">
+          <span>↳ INGREDIENTES NO PERMITIDOS</span>
+          <span class="qty">N=5</span>
+        </div>
+
+        <div class="bl-row tox" data-pair="0" data-type="tox">
+          <div class="name">Parabenos</div>
+          <div class="use">Conservador</div>
+        </div>
+        <div class="bl-row tox" data-pair="1" data-type="tox">
+          <div class="name">Lauret sulfato de sodio</div>
+          <div class="use">Agente espumante</div>
+        </div>
+        <div class="bl-row tox" data-pair="2" data-type="tox">
+          <div class="name">Ciclopentasiloxano · Dimeticonas</div>
+          <div class="use">Viscosidad y textura</div>
+        </div>
+        <div class="bl-row tox" data-pair="3" data-type="tox">
+          <div class="name">Fragancias sintéticas</div>
+          <div class="use">Olor</div>
+        </div>
+        <div class="bl-row tox" data-pair="4" data-type="tox">
+          <div class="name">Fenoxietanol · Clorfenesina</div>
+          <div class="use">Conservador agresivo</div>
+        </div>
+      </div>
+
+      <div class="bl-col">
+        <div class="bl-col-head">
+          <span>↳ ALTERNATIVAS</span>
+          <span class="qty">N=5</span>
+        </div>
+        <div class="bl-row alt" data-pair="0" data-type="alt">
+          <div class="name">Sorbato de potasio · alcohol bencílico</div>
+          <div class="use">Conservador limpio</div>
+        </div>
+        <div class="bl-row alt" data-pair="1" data-type="alt">
+          <div class="name">Sulfoacetato de sodio</div>
+          <div class="use">Espumante suave</div>
+        </div>
+        <div class="bl-row alt" data-pair="2" data-type="alt">
+          <div class="name">Capril caprilato · gomas naturales · hialurónico</div>
+          <div class="use">Viscosidad y textura</div>
+        </div>
+        <div class="bl-row alt" data-pair="3" data-type="alt">
+          <div class="name">Extractos naturales funcionales</div>
+          <div class="use">Olor &amp; activo</div>
+        </div>
+        <div class="bl-row alt" data-pair="4" data-type="alt">
+          <div class="name">Sistemas conservantes ECOCERT compatibles</div>
+          <div class="use">Conservador certificado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- floating molecule preview -->
+<div class="bl-molecule" id="blMolecule" aria-hidden="true">
+  <div class="ml-head">
+    <span id="mlId">SUB-00</span> · <span id="mlType">TOX</span>
+  </div>
+  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path id="mlPath" class="draw-path" d="M 40 60 L 70 40 L 100 60 L 130 40 L 160 60 L 130 80 L 100 60 L 70 80 Z" fill="rgba(30,58,95,0.04)"/>
+    <circle id="mlA" class="draw-path" cx="40" cy="60" r="4" fill="#f4f1ec"/>
+    <circle id="mlB" class="draw-path" cx="100" cy="60" r="4" fill="#f4f1ec"/>
+    <circle id="mlC" class="draw-path accent" cx="160" cy="60" r="5" fill="#c9622a"/>
+  </svg>
+  <div style="margin-top:6px;font-size:8px;letter-spacing:0.14em;color:var(--ink-soft);" id="mlLabel">→ HOVER PARA VER ESTRUCTURA</div>
+</div>
+
+<!-- ============== SECTION 05 — SERVICIOS ============== -->
+<section class="section-wrap" id="servicios">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num-block">
+        <span class="phase">PHASE 05 / SCOPE</span>
+        <span>SERVICIOS</span>
+        <span class="id">SECTION-05 · WO-01..04</span>
+      </div>
+      <h2 class="section-title">Cuatro caminos para construir <em>la marca</em> de tu talento.</h2>
+    </div>
+
+    <div class="wo-grid reveal">
+      <div class="wo-card">
+        <div class="wo-head">
+          <span class="wo-id">WORK ORDER № WO-01</span>
+          <span class="wo-status"><span class="dot"></span>OPEN</span>
+        </div>
+        <h3><em>Marca</em> Blanca</h3>
+        <p>Eliges productos directamente de nuestro catálogo de fórmulas validadas y los envasamos con tu marca. El camino más rápido al mercado: arrancas con fórmulas que ya sabemos que funcionan.</p>
+        <div class="wo-foot">
+          <span><span class="label">SCOPE</span> · CATÁLOGO + ENVASE</span>
+          <span>+18 SKU</span>
+        </div>
+      </div>
+
+      <div class="wo-card">
+        <div class="wo-head">
+          <span class="wo-id">WORK ORDER № WO-02</span>
+          <span class="wo-status"><span class="dot"></span>OPEN</span>
+        </div>
+        <h3><em>Formulación</em> a medida</h3>
+        <p>Diseñamos desde cero la fórmula exacta que tu talento necesita: textura, activos, claims, tipo de piel. Investigación, prototipado, iteración hasta llegar al producto perfecto.</p>
+        <div class="wo-foot">
+          <span><span class="label">SCOPE</span> · R&amp;D DESDE BRIEF</span>
+          <span>SEM 03—07</span>
+        </div>
+      </div>
+
+      <div class="wo-card">
+        <div class="wo-head">
+          <span class="wo-id">WORK ORDER № WO-03</span>
+          <span class="wo-status"><span class="dot"></span>OPEN</span>
+        </div>
+        <h3><em>Maquila</em> exclusiva</h3>
+        <p>Ya tienes la fórmula (propia o de un químico previo) y necesitas producirla con calidad y escala. Fabricamos respetando confidencialidad total y manteniendo nuestros estándares de calidad.</p>
+        <div class="wo-foot">
+          <span><span class="label">SCOPE</span> · FAB SOBRE IP DEL CLIENTE</span>
+          <span>NDA</span>
+        </div>
+      </div>
+
+      <div class="wo-card">
+        <div class="wo-head">
+          <span class="wo-id">WORK ORDER № WO-04</span>
+          <span class="wo-status"><span class="dot"></span>OPEN</span>
+        </div>
+        <h3><em>Envasado</em> integral</h3>
+        <p>Te apoyamos en la búsqueda y selección de envases primarios, secundarios, etiquetas, cumplimiento NOM-141 — todo el proceso para que el producto salga listo para vender en retail o e-commerce.</p>
+        <div class="wo-foot">
+          <span><span class="label">SCOPE</span> · END-TO-END</span>
+          <span>NOM-141</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 06 — CONTACTO ============== -->
+<section class="cta-section" id="contacto">
+  <div class="container">
+    <div class="cta-eyebrow reveal">PHASE 06 / SIGUIENTE PASO</div>
+    <h2 class="cta-title reveal">Agenda una reunión. Lleguemos al <em>brief</em> de tu talento.</h2>
+
+    <div class="channels reveal">
+      <a href="tel:+523333016642" class="channel" data-magnetic>
+        <div class="ch-num">CHANNEL · 01</div>
+        <div class="ch-label">→ TELÉFONO DIRECTO <span class="ch-arrow">↗</span></div>
+        <div class="ch-value">33 3301 6642</div>
+      </a>
+      <a href="https://wa.me/523333016642" class="channel" target="_blank" rel="noopener" data-magnetic>
+        <div class="ch-num">CHANNEL · 02</div>
+        <div class="ch-label">→ WHATSAPP <span class="ch-arrow">↗</span></div>
+        <div class="ch-value">33 3301 6642</div>
+      </a>
+      <a href="mailto:contacto@tsc-labs.com.mx" class="channel" data-magnetic>
+        <div class="ch-num">CHANNEL · 03</div>
+        <div class="ch-label">→ EMAIL <span class="ch-arrow">↗</span></div>
+        <div class="ch-value">contacto@tsc-labs.com.mx</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="left">TSC LABS · BOCANA 2692 · ZAPOPAN, JALISCO · MÉXICO</div>
+  <div class="right">BLUEPRINT № TSC-2026/01 · CONFIDENCIAL</div>
+</footer>
+
+<!-- ============== GSAP CDN ============== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  // ============ CONFIG / GUARDS ============
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasGSAP = typeof window.gsap !== 'undefined';
+
+  // ============ REVEAL (IntersectionObserver, NOT ScrollTrigger) ============
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+  }
+
+  // ============ SkinClub link ============
+  document.querySelectorAll('[data-skinclub]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      // Placeholder; replace with actual url when ready
+      // Currently href="#" — keep default if user wants it later.
+    });
+  });
+
+  // ============ Bail out for reduced motion or no GSAP ============
+  if (reduceMotion || !hasGSAP) {
+    // Show all SVG paths instantly
+    document.querySelectorAll('.draw-path').forEach((p) => {
+      p.style.strokeDasharray = 'none';
+    });
+    // Set counters to final
+    document.querySelectorAll('[data-counter]').forEach((el) => {
+      const t = parseFloat(el.dataset.counter);
+      const d = parseInt(el.dataset.decimals || '0', 10);
+      el.textContent = t.toFixed(d);
+    });
+    return;
+  }
+
+  // ============ GSAP REGISTER ============
+  gsap.registerPlugin(ScrollTrigger);
+  if (typeof DrawSVGPlugin !== 'undefined') gsap.registerPlugin(DrawSVGPlugin);
+  if (typeof MorphSVGPlugin !== 'undefined') gsap.registerPlugin(MorphSVGPlugin);
+
+  // ============ HERO SVG DRAW ON LOAD ============
+  function drawHeroDiagram() {
+    const heroSvg = document.getElementById('heroSvg');
+    if (!heroSvg) return;
+
+    // Mobile fallback: just show
+    if (isMobile) {
+      heroSvg.querySelectorAll('.draw-path').forEach((p) => p.style.strokeDasharray = 'none');
+      heroSvg.querySelectorAll('.hero-node').forEach((n) => gsap.set(n, { opacity: 1 }));
+      return;
+    }
+
+    // Initial state: hide nodes, prep paths
+    gsap.set(heroSvg.querySelectorAll('.hero-node'), { opacity: 0 });
+    gsap.set(heroSvg.querySelectorAll('.hero-annot'), { opacity: 0 });
+
+    const tl = gsap.timeline({
+      delay: 0.2,
+      defaults: { ease: 'power2.inOut' }
+    });
+
+    // 1. Top + bottom spec lines
+    tl.from(heroSvg.querySelectorAll('.hero-line'), {
+      drawSVG: '0%',
+      duration: 0.7,
+      stagger: 0.08
+    });
+
+    // 2. Connecting paths between nodes
+    tl.from(heroSvg.querySelectorAll('.hero-conn'), {
+      drawSVG: '0%',
+      duration: 1.4,
+      stagger: 0.12
+    }, '-=0.3');
+
+    // 3. Nodes fade in with stagger
+    tl.to(heroSvg.querySelectorAll('.hero-node'), {
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: 'power1.out'
+    }, '-=0.7');
+
+    // 4. Annotations
+    tl.from(heroSvg.querySelectorAll('.hero-annot line'), {
+      drawSVG: '0%',
+      duration: 0.5,
+      stagger: 0.06
+    }, '-=0.2');
+    tl.to(heroSvg.querySelectorAll('.hero-annot'), {
+      opacity: 1,
+      duration: 0.4
+    }, '-=0.3');
+  }
+
+  drawHeroDiagram();
+
+  // ============ HERO STAT COUNTERS (on enter viewport) ============
+  document.querySelectorAll('[data-counter]').forEach((el) => {
+    const target = parseFloat(el.dataset.counter);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const obj = { v: 0 };
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          v: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.textContent = obj.v.toFixed(decimals);
+          }
+        });
+      }
+    });
+  });
+
+  // ============ PHASE DIAGRAM DRAW ON ENTER (5 phases) ============
+  document.querySelectorAll('.phase-diagram').forEach((diag) => {
+    const paths = diag.querySelectorAll('.draw-path');
+    if (!paths.length) return;
+
+    if (isMobile) {
+      paths.forEach((p) => p.style.strokeDasharray = 'none');
+      return;
+    }
+
+    // Set initial draw state
+    gsap.set(paths, { drawSVG: '0%' });
+
+    ScrollTrigger.create({
+      trigger: diag,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to(paths, {
+          drawSVG: '100%',
+          duration: 1.2,
+          stagger: 0.04,
+          ease: 'power2.inOut'
+        });
+      }
+    });
+  });
+
+  // ============ PROGRESS RAIL (5 phases active state) ============
+  const railItems = document.querySelectorAll('.progress-rail .rl-item');
+  if (railItems.length && !isMobile) {
+    document.querySelectorAll('[data-phase-row]').forEach((row) => {
+      const phaseId = row.dataset.phaseRow;
+      ScrollTrigger.create({
+        trigger: row,
+        start: 'top 60%',
+        end: 'bottom 40%',
+        onEnter: () => updateRail(phaseId),
+        onEnterBack: () => updateRail(phaseId)
+      });
+    });
+    function updateRail(id) {
+      railItems.forEach((it) => {
+        it.classList.toggle('active', it.dataset.phase === id);
+      });
+    }
+  }
+
+  // ============ MAGNETIC HOVER (only on .channel CTA buttons) ============
+  if (!isMobile) {
+    document.querySelectorAll('[data-magnetic]').forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(el, {
+          x: x * 0.15,
+          y: y * 0.15,
+          duration: 0.45,
+          ease: 'power2.out'
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.4)'
+        });
+      });
+    });
+  }
+
+  // ============ INGREDIENT BLACKLIST — MORPH MOLECULE ON HOVER ============
+  // Pre-defined paths for tox vs alt structures (5 pairs)
+  const toxPaths = [
+    'M 40 60 L 70 40 L 100 60 L 130 40 L 160 60 L 130 80 L 100 60 L 70 80 Z',
+    'M 30 60 L 60 30 L 100 30 L 130 60 L 100 90 L 60 90 Z',
+    'M 30 40 L 80 40 L 80 80 L 30 80 Z M 100 40 L 150 40 L 150 80 L 100 80 Z',
+    'M 50 60 Q 70 30 100 60 Q 130 90 160 60',
+    'M 40 60 L 80 40 L 120 60 L 80 80 Z M 120 60 L 160 40 L 160 80 Z'
+  ];
+  const altPaths = [
+    'M 50 60 L 80 40 L 110 60 L 140 40 L 170 60 L 140 80 L 110 60 L 80 80 Z',
+    'M 30 60 Q 60 20 100 30 Q 140 40 130 60 Q 120 80 80 90 Q 40 100 30 60 Z',
+    'M 30 60 L 70 40 L 110 60 L 150 40 L 170 60 L 150 80 L 110 60 L 70 80 Z',
+    'M 30 60 Q 50 30 80 60 Q 110 90 140 60 Q 160 30 180 60',
+    'M 40 50 Q 80 30 120 50 Q 160 70 170 60 Q 160 50 120 70 Q 80 90 40 70 Z'
+  ];
+
+  const molecule = document.getElementById('blMolecule');
+  const mlPath = document.getElementById('mlPath');
+  const mlId = document.getElementById('mlId');
+  const mlType = document.getElementById('mlType');
+  const mlLabel = document.getElementById('mlLabel');
+
+  if (molecule && mlPath && !isMobile) {
+    document.querySelectorAll('.bl-row[data-pair]').forEach((row) => {
+      row.addEventListener('mouseenter', (e) => {
+        const i = parseInt(row.dataset.pair, 10);
+        const type = row.dataset.type;
+        const targetPath = type === 'tox' ? toxPaths[i] : altPaths[i];
+        mlId.textContent = (type === 'tox' ? 'TOX-' : 'ALT-') + String(i + 1).padStart(2, '0');
+        mlType.textContent = type === 'tox' ? 'NO PERMITIDO' : 'ALTERNATIVA';
+        mlLabel.textContent = type === 'tox' ? '→ ESTRUCTURA TÓXICA' : '→ ALTERNATIVA SEGURA';
+        molecule.classList.add('show');
+
+        // MorphSVG to target
+        if (typeof MorphSVGPlugin !== 'undefined') {
+          gsap.to(mlPath, {
+            morphSVG: targetPath,
+            duration: 0.6,
+            ease: 'power2.inOut'
+          });
+        } else {
+          mlPath.setAttribute('d', targetPath);
+        }
+      });
+      row.addEventListener('mousemove', (e) => {
+        const x = e.clientX + 24;
+        const y = e.clientY - 90;
+        // keep inside viewport
+        const maxX = window.innerWidth - 200;
+        const maxY = window.innerHeight - 200;
+        molecule.style.left = Math.min(x, maxX) + 'px';
+        molecule.style.top = Math.max(20, Math.min(y, maxY)) + 'px';
+      });
+      row.addEventListener('mouseleave', () => {
+        molecule.classList.remove('show');
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
