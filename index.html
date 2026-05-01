@@ -1014,6 +1014,259 @@ footer .right { color: var(--blueprint); font-weight: 600; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============== DASHBOARD / MARGIN CALCULATOR ============== */
+.calc-sub {
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.calc-wrapper {
+  position: relative;
+  margin-top: 40px;
+  border: 1px solid var(--blueprint);
+  background: var(--paper);
+  padding: 28px;
+}
+.calc-wrapper .calc-corner {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--blueprint);
+  background: var(--paper);
+  padding: 0 6px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.calc-wrapper .calc-corner.tl { top: -6px; left: 14px; }
+.calc-wrapper .calc-corner.tr { top: -6px; right: 14px; }
+.calc-wrapper .calc-corner.bl { bottom: -6px; left: 14px; }
+.calc-wrapper .calc-corner.br { bottom: -6px; right: 14px; }
+.calc-inner { padding: 12px 4px 4px; }
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.calc-controls { display: flex; flex-direction: column; gap: 26px; }
+.calc-field { display: flex; flex-direction: column; gap: 10px; }
+.calc-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.calc-field label .val {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+.calc-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 12px 36px 12px 14px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--blueprint) 50%), linear-gradient(135deg, var(--blueprint) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.calc-select:focus { outline: none; border-color: var(--blueprint); }
+.calc-field input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  margin: 4px 0;
+}
+.calc-field input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--line);
+  border: none;
+}
+.calc-field input[type="range"]::-moz-range-track {
+  height: 2px;
+  background: var(--line);
+  border: none;
+}
+.calc-field input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--blueprint);
+  border: 1px solid var(--blueprint);
+  border-radius: 0;
+  margin-top: -6px;
+  cursor: pointer;
+}
+.calc-field input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--blueprint);
+  border: 1px solid var(--blueprint);
+  border-radius: 0;
+  cursor: pointer;
+}
+.calc-field input[type="range"]:focus { outline: none; }
+.tier-indicator,
+.field-help {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.chip-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.chip {
+  appearance: none;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 12px 10px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Inter Tight', sans-serif;
+  color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.chip strong {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+}
+.chip .chip-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.chip:hover { border-color: var(--blueprint); }
+.chip.active {
+  background: var(--blueprint);
+  border-color: var(--blueprint);
+  color: var(--paper);
+}
+.chip.active .chip-sub { color: rgba(244, 241, 236, 0.75); }
+.calc-output {
+  border: 1px solid var(--line);
+  background: var(--paper-darker);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.calc-output-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--blueprint);
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.calc-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line-soft);
+}
+.calc-line:last-child { border-bottom: none; }
+.calc-line.sep {
+  border-bottom: 1px solid var(--blueprint);
+  margin-top: 4px;
+}
+.calc-line .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.calc-line .label .meta {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--blueprint-soft);
+  margin-left: 4px;
+  text-transform: none;
+}
+.calc-line .value {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.calc-line .value.tight {
+  font-size: 13px;
+  font-weight: 400;
+  text-align: right;
+  max-width: 220px;
+}
+.calc-line.highlight {
+  margin-top: 6px;
+  padding: 14px 12px;
+  background: var(--blueprint);
+}
+.calc-line.highlight .label { color: var(--paper); }
+.calc-line.highlight .value {
+  color: var(--paper);
+  font-size: 26px;
+  font-weight: 600;
+}
+.calc-disclaimer {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .calc-wrapper { padding: 22px 16px; }
+  .calc-grid { grid-template-columns: 1fr; gap: 28px; }
+  .chip-group { grid-template-columns: 1fr; }
+  .calc-line .value { font-size: 16px; }
+  .calc-line.highlight .value { font-size: 22px; }
+  .calc-wrapper .calc-corner { font-size: 8px; }
+}
 </style>
 </head>
 <body>
@@ -1538,6 +1791,111 @@ footer .right { color: var(--blueprint); font-weight: 600; }
   </div>
 </section>
 
+<!-- ============== SECTION 03B — DASHBOARD / MARGIN CALCULATOR ============== -->
+<section class="section-wrap" id="calc">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num-block">
+        <span class="phase">&rarr; DASHBOARD</span>
+        <span>UNIT ECONOMICS</span>
+        <span class="id">SECTION-03B &middot; TSC-CALC-01</span>
+      </div>
+      <h2 class="section-title">Margen real, <em>medido</em> en condiciones de operaci&oacute;n TSC LABS.</h2>
+      <p class="calc-sub">Tarifas verificadas &middot; 20 SKUs &middot; cat&aacute;logo de maquila 2024 &middot; IVA 16% incluido en revenue.</p>
+    </div>
+
+    <div class="calc-wrapper reveal">
+      <span class="calc-corner tl">[ TSC-CALC-01 / TL ]</span>
+      <span class="calc-corner tr">[ TSC-CALC-01 / TR ]</span>
+      <span class="calc-corner bl">[ TSC-CALC-01 / BL ]</span>
+      <span class="calc-corner br">[ TSC-CALC-01 / BR ]</span>
+
+      <div class="calc-inner">
+        <div class="calc-grid">
+          <div class="calc-controls">
+
+            <div class="calc-field">
+              <label>&rarr; PRODUCTO</label>
+              <select class="calc-select" id="productSel"></select>
+            </div>
+
+            <div class="calc-field">
+              <label>&rarr; VOLUMEN DE PRODUCCI&Oacute;N <span class="val" id="volVal">1,000 unidades</span></label>
+              <input type="range" id="volume" min="100" max="10000" value="1000" step="50">
+              <div class="tier-indicator" id="tierInd">&mdash; Tarifa mayoreo (+400 piezas)</div>
+            </div>
+
+            <div class="calc-field">
+              <label>&rarr; PRECIO P&Uacute;BLICO SUGERIDO <span class="val" id="priceVal">$450 MXN</span></label>
+              <input type="range" id="price" min="100" max="1500" value="450" step="10">
+              <div class="field-help">Precio final de venta al consumidor (incluye IVA)</div>
+            </div>
+
+            <div class="calc-field">
+              <label>&rarr; CANAL DE VENTA</label>
+              <div class="chip-group" id="channelGroup">
+                <button type="button" class="chip active" data-discount="0" data-label="D2C"><strong>D2C directo</strong><span class="chip-sub">0% descuento</span></button>
+                <button type="button" class="chip" data-discount="0.45" data-label="Retail"><strong>Retail</strong><span class="chip-sub">Sephora / Palacio &middot; &minus;45%</span></button>
+                <button type="button" class="chip" data-discount="0.50" data-label="Mayorista"><strong>Mayorista</strong><span class="chip-sub">Distribuidor &middot; &minus;50%</span></button>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label>&rarr; ENVASE CUSTOM <span class="val" id="pkgVal">sin envase custom</span></label>
+              <input type="range" id="pkg" min="0" max="60" value="0" step="1">
+              <div class="field-help">+MXN / unidad por envase primario + etiqueta personalizada (0&ndash;60)</div>
+            </div>
+
+          </div>
+
+          <div class="calc-output">
+            <div class="calc-output-head">
+              <span>READOUT</span>
+              <span>MXN &middot; LIVE</span>
+            </div>
+            <div class="calc-line">
+              <div class="label">Producto</div>
+              <div class="value tight" id="outProduct">&mdash;</div>
+            </div>
+            <div class="calc-line">
+              <div class="label">Pago a TSC <span class="meta" id="outTierNote">&mdash;</span></div>
+              <div class="value" id="outTSC">$0</div>
+            </div>
+            <div class="calc-line" id="envaseLine" style="display:none;">
+              <div class="label">Envase custom <span class="meta" id="outPkgNote">&mdash;</span></div>
+              <div class="value" id="outEnvase">$0</div>
+            </div>
+            <div class="calc-line sep">
+              <div class="label">Inversi&oacute;n total</div>
+              <div class="value" id="outInvest">$0</div>
+            </div>
+            <div class="calc-line">
+              <div class="label">Ingreso bruto <span class="meta" id="outCanalTag">(D2C)</span></div>
+              <div class="value" id="outRevenue">$0</div>
+            </div>
+            <div class="calc-line">
+              <div class="label">(&minus;) IVA 16%</div>
+              <div class="value" id="outIva">$0</div>
+            </div>
+            <div class="calc-line">
+              <div class="label">Utilidad neta</div>
+              <div class="value" id="outProfit">$0</div>
+            </div>
+            <div class="calc-line highlight">
+              <div class="label">Margen neto</div>
+              <div class="value" id="outMargin">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="calc-disclaimer">
+          Precios TSC verificados contra cat&aacute;logo oficial 2024. Menudeo se aplica a 100&ndash;399 piezas, mayoreo a partir de 400. Canal retail asume descuento t&iacute;pico 45% (Sephora/Palacio/Liverpool); mayorista 50% (distribuidor). IVA 16% deducido del ingreso bruto (precios p&uacute;blicos en MX incluyen IVA). Envase custom es estimado referencial &mdash; el costo real depende de material, cantidad y proveedor. No incluye branding, marketing, distribuci&oacute;n ni costos indirectos. Valores finales se confirman tras reuni&oacute;n de scoping.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== SECTION 04 — INGREDIENTES ============== -->
 <section class="section-wrap" id="ingredientes">
   <div class="container">
@@ -1996,6 +2354,131 @@ footer .right { color: var(--blueprint); font-weight: 600; }
     });
   }
 
+})();
+
+// ============ CALCULATOR ============
+// Precios verificados contra CATÁLOGO MAQUILA 2024 (TSC LABS)
+// m = menudeo (100-300 piezas), M = mayoreo (+400 piezas)
+(function(){
+  const products = [
+    { id:'esp-grasa',   name:'Espuma Dermolimpiadora · Piel grasa · 150mL',  fam:'Dermolimpiadores', m:55,  M:47,  sug:359, max:800  },
+    { id:'esp-normal',  name:'Espuma Dermolimpiadora · Piel normal · 150mL', fam:'Dermolimpiadores', m:55,  M:47,  sug:359, max:800  },
+    { id:'esp-seca',    name:'Espuma Dermolimpiadora · Piel seca · 150mL',   fam:'Dermolimpiadores', m:61,  M:51,  sug:379, max:800  },
+    { id:'ton-grasa',   name:'Tónico · Piel grasa · 150mL',                  fam:'Tónicos',          m:64,  M:54,  sug:299, max:700  },
+    { id:'ton-normal',  name:'Tónico · Piel normal · 150mL',                 fam:'Tónicos',          m:80,  M:68,  sug:349, max:800  },
+    { id:'ton-seca',    name:'Tónico · Piel seca · 150mL',                   fam:'Tónicos',          m:90,  M:77,  sug:389, max:900  },
+    { id:'suero-hidra', name:'Suero Ultra Hidratante · 30mL',                fam:'Sueros',           m:92,  M:79,  sug:650, max:1500 },
+    { id:'suero-vitc',  name:'Suero Vitamina C · 30mL',                      fam:'Sueros',           m:71,  M:60,  sug:450, max:1200 },
+    { id:'crema-grasa', name:'Crema Gel Facial · Piel grasa · 60mL',         fam:'Cremas faciales',  m:57,  M:49,  sug:425, max:1000 },
+    { id:'crema-seca',  name:'Crema Gel Facial · Piel seca · 60mL',          fam:'Cremas faciales',  m:53,  M:45,  sug:399, max:1000 },
+    { id:'crema-normal',name:'Crema Gel Facial · Piel normal · 60mL',        fam:'Cremas faciales',  m:52,  M:44,  sug:399, max:1000 },
+    { id:'crema-rep',   name:'Crema Gel Facial Reparadora · 60mL',           fam:'Cremas faciales',  m:101, M:86,  sug:650, max:1500 },
+    { id:'crema-noche', name:'Crema Gel Facial de Noche · 60mL',             fam:'Cremas faciales',  m:127, M:108, sug:699, max:1800 },
+    { id:'mask',        name:'Mascarilla de Arcilla · 60mL',                 fam:'Especialidades',   m:37,  M:32,  sug:299, max:700  },
+    { id:'corp',        name:'Crema Corporal · 250mL',                       fam:'Especialidades',   m:122, M:104, sug:549, max:1200 },
+    { id:'desmaq',      name:'Desmaquillante Bifásico · 100mL',              fam:'Especialidades',   m:78,  M:66,  sug:449, max:1000 },
+    { id:'jabon',       name:'Jabón Facial Líquido · Piel grasa · 120mL',    fam:'Especialidades',   m:55,  M:47,  sug:299, max:700  },
+    { id:'ojos-crema',  name:'Contorno de Ojos · Crema gel · 15mL',          fam:'Contorno de ojos', m:37,  M:32,  sug:499, max:1200 },
+    { id:'ojos-suero',  name:'Contorno de Ojos · Suero · 15mL',              fam:'Contorno de ojos', m:53,  M:45,  sug:599, max:1400 },
+    { id:'barba',       name:'Bálsamo Crecimiento de Barba · 30mL',          fam:'Línea masculina',  m:52,  M:44,  sug:349, max:800  },
+  ];
+
+  const sel = document.getElementById('productSel');
+  if (!sel) return;
+  const fams = {};
+  products.forEach(p => { (fams[p.fam] = fams[p.fam] || []).push(p); });
+  Object.keys(fams).forEach(famName => {
+    const og = document.createElement('optgroup');
+    og.label = famName;
+    fams[famName].forEach(p => {
+      const o = document.createElement('option');
+      o.value = p.id;
+      o.textContent = p.name;
+      og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+  sel.value = 'suero-vitc';
+
+  let current = products.find(p => p.id === sel.value);
+  let discount = 0;
+  let channelLabel = 'D2C';
+
+  const volSlider = document.getElementById('volume');
+  const priceSlider = document.getElementById('price');
+  const pkgSlider = document.getElementById('pkg');
+
+  const $ = id => document.getElementById(id);
+  const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+
+  function applyProduct() {
+    priceSlider.max = current.max;
+    priceSlider.value = current.sug;
+  }
+
+  function recalc() {
+    const vol = parseInt(volSlider.value);
+    const price = parseInt(priceSlider.value);
+    const pkg = parseInt(pkgSlider.value);
+    const isMayoreo = vol >= 400;
+    const tier = isMayoreo ? 'mayoreo' : 'menudeo';
+    const unitCostTSC = isMayoreo ? current.M : current.m;
+
+    const tscTotal = vol * unitCostTSC;
+    const pkgTotal = vol * pkg;
+    const invest = tscTotal + pkgTotal;
+
+    const revenueGross = vol * price * (1 - discount);
+    const revenueNet = revenueGross / 1.16;
+    const ivaAmount = revenueGross - revenueNet;
+    const profit = revenueNet - invest;
+    const margin = revenueNet > 0 ? (profit / revenueNet) * 100 : 0;
+
+    $('volVal').textContent = vol.toLocaleString('en-US') + ' unidades';
+    $('priceVal').textContent = '$' + price + ' MXN';
+    $('pkgVal').textContent = pkg === 0 ? 'sin envase custom' : '+$' + pkg + ' / unidad';
+    $('tierInd').textContent = isMayoreo
+      ? '— Tarifa mayoreo · +400 piezas · $' + current.M + '/u'
+      : '— Tarifa menudeo · 100–399 piezas · $' + current.m + '/u';
+
+    $('outProduct').textContent = current.name;
+    $('outTSC').textContent = fmt(tscTotal);
+    $('outTierNote').textContent = '(' + tier + ' · $' + unitCostTSC + '/u)';
+    $('outEnvase').textContent = fmt(pkgTotal);
+    $('outPkgNote').textContent = '($' + pkg + '/u)';
+    $('envaseLine').style.display = pkg === 0 ? 'none' : 'grid';
+    $('outInvest').textContent = fmt(invest);
+    $('outRevenue').textContent = fmt(revenueGross);
+    $('outCanalTag').textContent = '(' + channelLabel + (discount > 0 ? ' · −' + Math.round(discount*100) + '%' : '') + ')';
+    $('outIva').textContent = fmt(ivaAmount);
+    $('outProfit').textContent = fmt(profit);
+    $('outProfit').style.color = profit < 0 ? '#c9622a' : '';
+    $('outMargin').textContent = margin.toFixed(1) + '%';
+    $('outMargin').style.color = margin < 0 ? '#c9622a' : '';
+  }
+
+  sel.addEventListener('change', () => {
+    current = products.find(p => p.id === sel.value);
+    applyProduct();
+    recalc();
+  });
+
+  document.querySelectorAll('#channelGroup .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#channelGroup .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      discount = parseFloat(chip.dataset.discount);
+      channelLabel = chip.dataset.label;
+      recalc();
+    });
+  });
+
+  volSlider.addEventListener('input', recalc);
+  priceSlider.addEventListener('input', recalc);
+  pkgSlider.addEventListener('input', recalc);
+
+  applyProduct();
+  recalc();
 })();
 </script>
 
